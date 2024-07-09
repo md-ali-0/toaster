@@ -4,7 +4,7 @@ class ToastManager {
   private listeners: ((toasts: Toast[]) => void)[] = [];
   private toasts: Toast[] = [];
   private idCounter = 0;
-  private defaultDuration = 2000; // Default duration for toasts
+  private defaultDuration = 2000;
 
   private notifyListeners() {
     this.listeners.forEach(listener => listener([...this.toasts]));
@@ -21,20 +21,20 @@ class ToastManager {
     this.defaultDuration = duration;
   }
 
-  public addToast(message: string, type: ToastType = 'info', duration: number = this.defaultDuration) {
+  public addToast(message: string, type: ToastType = 'default', duration: number = this.defaultDuration) {
     const id = this.idCounter++;
     const newToast: Toast = { id, message, type, duration };
     this.toasts.push(newToast);
     this.notifyListeners();
 
     const toastTimeout = setTimeout(() => {
-      this.removeToast(id);
+      this.dismiss(id);
     }, duration);
 
     newToast.timeoutId = toastTimeout as NodeJS.Timeout; // Updated cast
   }
 
-  public default(message: string, type: ToastType = 'info', duration?: number) {
+  public default(message: string, type: ToastType = 'default', duration?: number) {
     this.addToast(message, type, duration);
   }
 
@@ -58,7 +58,7 @@ class ToastManager {
     this.addToast(message, 'loading', duration);
   }
 
-  private removeToast(id: number) {
+  private dismiss(id: number) {
     this.toasts = this.toasts.filter(toast => toast.id !== id);
     this.notifyListeners();
   }
@@ -80,7 +80,7 @@ class ToastManager {
       this.notifyListeners();
 
       const toastTimeout = setTimeout(() => {
-        this.removeToast(id);
+        this.dismiss(id);
       }, remainingTime);
 
       toast.timeoutId = toastTimeout as NodeJS.Timeout; // Updated cast

@@ -1,32 +1,32 @@
 .toast {
-    padding: 12px 18px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    padding: 15px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    font-family: sans-serif, Arial, Helvetica;
-    transition: all 0.3s ease-in-out;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    transition: all 0.3s ease;
     animation: toast-in 0.3s ease-in-out forwards;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .toast:hover {
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .toast-icon {
-    margin-right: 20px;
-    font-size: 1.5rem;
+    margin-right: 8px;
+    font-size: 1rem;
     vertical-align: middle;
     animation: toast-icon-pulse 1s infinite ease-in-out;
 }
 
 .toast-message {
     flex: 1;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1.5;
 }
 
@@ -50,45 +50,70 @@
     }
 }
 
-.toast-success {
-    background-color: #2e7d32;
+/* Toast Types */
+.toast-default {
+    background-color: #fff;
 }
-
+.toast-default .toast-icon {
+    color: #000;
+}
+.toast-default .toast-message {
+    color: #000;
+    font-weight: 600;
+}
+.toast-success {
+    background-color: #ecfdf3;
+}
 .toast-success .toast-icon {
-    color: #fff;
+    color: #008a2e;
+}
+.toast-success .toast-message {
+    color: #008a2e;
+    font-weight: 600;
 }
 
 .toast-error {
-    background-color: #d32f2f;
+    background-color: #fff0f0;
 }
-
 .toast-error .toast-icon {
-    color: #fff;
+    color: #e60000;
 }
-
+.toast-error .toast-message {
+    color: #e60000;
+    font-weight: 600;
+}
 .toast-warning {
-    background-color: #ffc107;
+    background-color: #fffcf0;
 }
-
 .toast-warning .toast-icon {
-    color: #fff;
+    color: #dc7609;
 }
-
+.toast-warning .toast-message {
+    color: #dc7609;
+    font-weight: 600;
+}
 .toast-info {
-    background-color: #1976d2;
+    background-color: #f0f8ff;
 }
-
 .toast-info .toast-icon {
-    color: #fff;
+    color: #0973dc;
+}
+.toast-info .toast-message {
+    color: #0973dc;
+    font-weight: 600;
 }
 .toast-loading {
-    background-color: #a9cdf0;
+    background-color: #fff; /* Adjust for a suitable loading color */
 }
-
 .toast-loading .toast-icon {
-    color: #fff;
+    color: #000;
+}
+.toast-loading .toast-message {
+    color: #000;
+    font-weight: 600;
 }
 
+/* Toaster Positioning */
 .toaster {
     position: fixed;
     z-index: 9999;

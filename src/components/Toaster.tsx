@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import toast from '../toast';
 import { Toast, ToasterProps } from '../types';
-import { ErrorIcon, InfoIcon, LoadingIcon, SuccessIcon, WarningIcon } from './Icons';
+import { DefaultIcon, ErrorIcon, InfoIcon, LoadingIcon, SuccessIcon, WarningIcon } from './Icons';
 import styles from './Toast.module.css';
 
 const toastIcons = {
+  default: <DefaultIcon />,
   success: <SuccessIcon />,
   error: <ErrorIcon />,
   warning: <WarningIcon />,

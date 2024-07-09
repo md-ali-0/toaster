@@ -34,8 +34,8 @@ class ToastManager {
     newToast.timeoutId = toastTimeout as NodeJS.Timeout; // Updated cast
   }
 
-  public default(message: string, type: ToastType = 'default', duration?: number) {
-    this.addToast(message, type, duration);
+  public default(message: string, duration?: number) {
+    this.addToast(message, 'default', duration);
   }
 
   public info(message: string, duration?: number) {

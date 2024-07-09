@@ -2,29 +2,53 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Toaster from "../src/components/Toaster";
 import toast from "../src/toast";
+import "./styles.css";
 
 const App = () => {
     const defaultToast = () => {
-        toast.default("This is a default toast");
+        toast.default("This is a default toast", 2000);
     };
     return (
-        <div>
-            <button onClick={defaultToast}>Show Default Toast</button>
-            <button onClick={() => toast.success("This is a success toast")}>
-                Show Success Toast
-            </button>
-            <button onClick={() => toast.info("This is an info toast")}>
-                Show Info Toast
-            </button>
-            <button onClick={() => toast.error("This is an error toast")}>
-                Show Error Toast
-            </button>
-            <button onClick={() => toast.warning("This is a warning toast")}>
-                Show Warning Toast
-            </button>
-            <button onClick={() => toast.loading("This is a loading toast")}>
-                Show Loading Toast
-            </button>
+        <div className="flex flex-col justify-center items-center gap-5 h-screen">
+            <h3 className="text-3xl font-bold">Toaster</h3>
+            <div className="flex justify-center gap-5">
+                <button
+                    className="bg-white border rounded-md px-3.5 py-1.5"
+                    onClick={defaultToast}
+                >
+                    Default
+                </button>
+                <button
+                    className="bg-green-500 text-white rounded-md px-3.5 py-1.5"
+                    onClick={() => toast.success("This is a success toast")}
+                >
+                    Success
+                </button>
+                <button
+                    className="bg-blue-500 text-white rounded-md px-3.5 py-1.5"
+                    onClick={() => toast.info("This is an info toast")}
+                >
+                    Info
+                </button>
+                <button
+                    className="bg-red-600 text-white rounded-md px-3.5 py-1.5"
+                    onClick={() => toast.error("This is an error toast")}
+                >
+                    Error
+                </button>
+                <button
+                    className="bg-amber-600 text-white rounded-md px-3.5 py-1.5"
+                    onClick={() => toast.warning("This is a warning toast")}
+                >
+                    Warning
+                </button>
+                <button
+                    className="bg-black text-white rounded-md px-3.5 py-1.5"
+                    onClick={() => toast.loading("This is a loading toast")}
+                >
+                    Loading
+                </button>
+            </div>
         </div>
     );
 };
